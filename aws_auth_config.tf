@@ -9,12 +9,12 @@
 #     - groups:
 #       - system:bootstrappers
 #       - system:nodes
-#       rolearn: arn:aws:iam::905418367633:role/preprod-Cluster-node-group-role
+#       rolearn: rolearn
 #       username: system:node:{{EC2PrivateDNSName}}
 #     EOT
 
 #     "mapUsers" = <<-EOT
-#     - userarn: arn:aws:iam::905418367633:user/AdminUser
+#     - userarn: your user
 #       username: preprod
 #       groups:
 #         - system:masters
