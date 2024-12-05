@@ -1,11 +1,10 @@
 provider "aws" {
   region = "us-east-1"
-  profile = "nomi"
   default_tags {
     tags = {
       Environment = "${terraform.workspace}"
       # Timestamp   = timestamp()
-      Project     = "k8s-io-hellobible"
+      Project     = "rankbang"
     }
   }
 }
