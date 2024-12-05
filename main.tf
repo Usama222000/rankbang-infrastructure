@@ -27,7 +27,7 @@ module "eks" {
   for_each = var.eks_values
   source       = "./modules/eks"
   eks_values   = each.value
-  subnets_ids  = module.VPC[each.key].VPC.public_subnet
+  subnets_ids  = module.VPC[each.key].VPC.private_subnet
   local_values = local.values
   sg_id = [module.SG[each.key].SG-ID]
   depends_on = [ module.SG , module.VPC ]
@@ -54,15 +54,6 @@ resource "helm_release" "nginx_ingress_controller" {
       value = set.value
     }
   }
-  depends_on = [ module.SG , module.VPC , module.eks]
-}
-
-
-resource "helm_release" "csi_driver" {
-  name             = "aws-ebs-csi-driver"
-  namespace        = "kube-system"
-  repository       = "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"
-  chart            = "aws-ebs-csi-driver"
   depends_on = [ module.SG , module.VPC , module.eks]
 }
 
