@@ -1,4 +1,4 @@
-# emumba-sample-app-Infrastructure
+# Rankbang-Infrastructure
 
 This Terraform project sets up the infrastructure for the **rankbang application**, including the VPC, Security Groups, EKS Cluster, and integrates 
 
